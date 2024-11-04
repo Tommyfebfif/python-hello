@@ -18,13 +18,16 @@ def connectingPG():
         logging.info("DB Error.")
 
 def hello_world(request):
+    print("vvv")
     name = os.environ.get('NAME')
     if name == None or len(name) == 0:
         name = "world"
     message = "Hello, " + name + "!\n"
 
     pgdata = connectingPG()
+    print("aaa")
     logging.info(pgdata)
+    print(pgdata)
     
     return Response(message)
 
