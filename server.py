@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker
 import logging
 import os
 
+@view_config(route_name='connectingPG', renderer='json')
 def connectingPG(request):
     try:
         PGengine = create_engine('postgresql://user:password@host:port/database')
@@ -34,8 +35,8 @@ if __name__ == '__main__':
     with Configurator() as config:
         config.add_route('hello', '/')
         config.add_view(hello_world, route_name='hello')
-        config.add_route('hellopg', '/pg')
-        config.add_view(connectingPG, route_name='hellopg')
+        config.add_route('connectingPG', '/pg')
+        config.add_view(connectingPG, route_name='connectingPG')
         app = config.make_wsgi_app()
     server = make_server('0.0.0.0', port, app)
     server.serve_forever()
