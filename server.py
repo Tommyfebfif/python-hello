@@ -19,19 +19,19 @@ def connectingPG(request):
         logging.info("DB Error.")
 
 def hello_world(request):
-    PGengine = create_engine('postgresql://user:password@host:port/database')
-    pgSession = sessionmaker(bind=PGengine)
-    session = pgSession()
-    fetresult = session.execute('SELECT * FROM your_table').fetchall()
-    session.close()
+    # PGengine = create_engine('postgresql://user:password@host:port/database')
+    # pgSession = sessionmaker(bind=PGengine)
+    # session = pgSession()
+    # fetresult = session.execute('SELECT * FROM your_table').fetchall()
+    # session.close()
     
     name = os.environ.get('NAME')
     if name == None or len(name) == 0:
         name = "world"
     message = "Hello, " + name + "!\n"
 
-    pgdata = connectingPG()
-    logging.info(pgdata)
+    # pgdata = connectingPG()
+    # logging.info(pgdata)
     
     return Response(message)
 
