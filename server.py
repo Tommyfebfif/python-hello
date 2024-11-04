@@ -3,7 +3,7 @@ from pyramid.config import Configurator
 from pyramid.response import Response
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from logging import getLogger
+import logging
 import os
 
 def connectingPG():
@@ -14,7 +14,7 @@ def connectingPG():
         fetresult = session.execute('SELECT * FROM your_table').fetchall()
         session.close()
     except Exception as e:
-        logging.exception(e)
+        logging.info("DB Error.")
 
 def hello_world(request):
     name = os.environ.get('NAME')
