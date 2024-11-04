@@ -13,6 +13,7 @@ def connectingPG():
         session = pgSession()
         fetresult = session.execute('SELECT * FROM your_table').fetchall()
         session.close()
+        return fetresult
     except Exception as e:
         logging.info("DB Error.")
 
@@ -22,7 +23,8 @@ def hello_world(request):
         name = "world"
     message = "Hello, " + name + "!\n"
 
-    connectingPG()
+    pgdata = connectingPG()
+    logging.info(pgdata)
     
     return Response(message)
 
