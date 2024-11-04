@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 import logging
 import os
 
-def connectingPG():
+def connectingPG(request):
     try:
         PGengine = create_engine('postgresql://user:password@host:port/database')
         pgSession = sessionmaker(bind=PGengine)
