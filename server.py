@@ -1,6 +1,7 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
+from pyramid.view import view_config
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import logging
