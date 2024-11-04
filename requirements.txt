@@ -1,1 +1,2 @@
 pyramid==2.0
+sqlalchemy==latest
