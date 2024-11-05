@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import logging
 import os
+import psycopg2
 
 def home_view(request):
     engine = create_engine("postgresql://testu:testp@testhost:5432/testd")
