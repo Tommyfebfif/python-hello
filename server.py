@@ -7,7 +7,7 @@ import logging
 import os
 
 def home_view(request):
-    engine = create_engine(request.registry.settings['sqlalchemy.url'])
+    engine = create_engine("postgresql://testu:testp@testhost:5432/testd")
     Session = sessionmaker(bind=engine)
     session = Session()
 
