@@ -13,7 +13,6 @@ def home_view(request):
     dbuser = os.environ.get('DBUSER')
     dbpw = os.environ.get('DBP')
     
-    # engine = create_engine("postgresql://testu:testp@testhost:5432/testd")
     engine = create_engine("postgresql://{}:{}@{}:5432/{}".format(dbuser, dbpw, dbhost, dbname))
     Session = sessionmaker(bind=engine)
     session = Session()
