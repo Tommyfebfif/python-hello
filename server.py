@@ -8,11 +8,17 @@ import os
 import psycopg2
 
 def home_view(request):
-    engine = create_engine("postgresql://testu:testp@testhost:5432/testd")
+    dbhost = os.environ.get('DBHOST')
+    dbname = os.environ.get('DBNAME')
+    dbuser = os.environ.get('DBUSER')
+    dbpw = os.environ.get('DBP')
+    
+    # engine = create_engine("postgresql://testu:testp@testhost:5432/testd")
+    engine = create_engine("postgresql://{}:{}@{}:5432/{}".format(dbuser, dbpw, dbhost, dbname))
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.execute("SELECT * FROM your_table")
+    result = session.execute("SELECT * FROM mytable")
     rows = result.fetchall()
 
     html = "<html><body>"
